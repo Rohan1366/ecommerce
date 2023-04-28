@@ -11,6 +11,8 @@ import Login from './pages/Auth/Login';
 import Dashboard from './user/Dashboard';
 import PrivateRoute from './components/Routes/Private';
 import ForgotPasssword from './pages/Auth/ForgotPassword';
+import AdminRoute from './components/Routes/AdminRoute';
+import AdminDashboard from './pages/Admin/AdminDashboard';
 function App() {
   return (
     <>
@@ -24,11 +26,15 @@ function App() {
         <Route path='/login' element={<Login/>} />
         
         <Route path='/dashboard' element={<PrivateRoute/>}>
-        <Route path='' element={<Dashboard/>} />
+        <Route path='user' element={<Dashboard/>} />
         </Route>
         <Route path='/forgot-password' element={<ForgotPasssword/>} />
+
+        <Route path='/dashboard' element={<AdminRoute/>}>
+        <Route path='admin' element={<AdminDashboard/>} />
+        </Route>
      </Routes>
-      
+    
     
       
     </>

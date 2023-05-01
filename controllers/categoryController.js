@@ -26,7 +26,7 @@ export const createCategoryController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      errro,
+      error,
       message: "Errro in Category",
     });
   }
@@ -57,7 +57,7 @@ export const updateCategoryController = async (req, res) => {
   }
 };
 
-// get all cat
+// get all category
 export const categoryControlller = async (req, res) => {
   try {
     const category = await categoryModel.find({});

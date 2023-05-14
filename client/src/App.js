@@ -20,11 +20,15 @@ import Orders from './user/Orders';
 import Profile from './user/Profile';
 import Products from './pages/Admin/Products';
 import UpdateProduct from './pages/Admin/UpdateProduct';
+import Search from './pages/Search';
+import ProductDetails from './pages/ProductDetails';
 function App() {
   return (
     <>
      <Routes>
         <Route path='/' element={<HomePage/>}/>
+        <Route path='/search' element={<Search/>}/>
+        <Route path='/product/:slug' element={<ProductDetails/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<ContactPage/>}/>
         <Route path='/policy' element={<Policy/>}/>

@@ -6,6 +6,7 @@ import fs from "fs";
 import slugify from "slugify";
 import braintree from "braintree";
 import dotenv from "dotenv";
+import userModel from "../models/userModel.js";
 
 dotenv.config();
 
@@ -375,3 +376,26 @@ export const brainTreePaymentController = async (req, res) => {
     console.log(error);
   }
 };
+ 
+// get-users
+export const getUsersController = async(req,res)=>{
+  try {
+    const users = await userModel
+      .find({})
+      .limit(20)
+      .sort({ createdAt: -1 });
+    res.status(200).send({
+      success: true,
+      counTotal: users.length,
+      message: "ALLusers ",
+      users,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Erorr in getting users",
+      error: error.message,
+    });
+  }
+}

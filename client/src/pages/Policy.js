@@ -16,7 +16,7 @@ const Policy = () => {
       <h1>Privacy Policy</h1>
        <p>
         This is not original website this is clone app dont share your personal details only try and enjoy beautyful work.
-        If you write your original take in your own risk 
+        If you write your original details take in your own risk . 
 
        </p>
 

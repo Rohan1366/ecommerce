@@ -1,8 +1,27 @@
-import React from 'react'
+import axios from 'axios';
 import Adminmenu from '../../components/Layout/AdminMenu'
 import Layout from '../../components/Layout/Layout'
-
+import React, { useState, useEffect } from "react";
+import { toast } from 'react-hot-toast';
 const Users = () => {
+
+  const [users, setUsers] = useState([]);
+  
+  //getall products
+  const getAllUsers = async () => {
+    try {
+      const { data } = await axios.get("/api/v1/product/get-user");
+      setUsers(data.users);
+    } catch (error) {
+      console.log(error);
+      toast.error("Someething Went Wrong");
+    }
+  };
+
+  //lifecycle method
+  useEffect(() => {
+    getAllUsers();
+  }, []);
   return (
 
        <Layout title={'Dashboard - All Users'}>
@@ -12,7 +31,29 @@ const Users = () => {
                 <Adminmenu/>
             </div>
             <div className='col-md-9'>
-            <h1>All Users</h1>
+            <h1 style={{textAlign:"center"}}>All Users</h1>
+           <h3 style={{textAlign:"center",marginBottom:"20px"}}>Total Users {users.length} </h3>
+            
+                         
+             
+            
+             <ol  className="list-group list-group-numbered">
+                     
+                     {
+                         users.map((ele)=>{
+                           
+
+                             
+                              return <li className="list-group-item" style={{padding:"20px",color:"black",size:"10px"}}>{ele.name}</li>
+                             
+                         })
+                     }
+                 </ol>
+              
+           
+
+
+
             </div>
           </div>
         </div>  

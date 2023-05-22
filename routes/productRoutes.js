@@ -6,6 +6,7 @@ import {
   deleteProductController,
   getProductController,
   getSingleProductController,
+  getUsersController,
   productCategoryController,
   productCountController,
   productFiltersController,
@@ -40,6 +41,7 @@ router.put(
 //get products
 router.get("/get-product", getProductController);
 
+
 //single product
 router.get("/get-product/:slug", getSingleProductController);
 
@@ -73,5 +75,8 @@ router.get("/braintree/token", braintreeTokenController);
 
 //payments
 router.post("/braintree/payment", requireSignIn, brainTreePaymentController);
+
+// get-users
+router.get("/get-user",getUsersController)
 
 export default router;

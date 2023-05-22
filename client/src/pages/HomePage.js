@@ -142,6 +142,7 @@ const HomePage = () => {
           </div>
           <div className="d-flex flex-column">
             <button
+            style={{padding:"10px",borderRadius:"7px"}}
               className="btn btn-danger"
               onClick={() => window.location.reload()}
             >
